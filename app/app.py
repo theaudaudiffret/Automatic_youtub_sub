@@ -59,7 +59,7 @@ def download_audio(youtube_url):
 
 # --- UI ---
 
-st.title("🧠 Analyseur Vidéo Générique")
+st.title("🧠 Youtube-Auto-Subtitler")
 st.markdown("Identification Vocale & Traduction Automatique")
 
 # Sidebar
