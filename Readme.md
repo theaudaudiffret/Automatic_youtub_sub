@@ -4,16 +4,16 @@
 
 Ce projet est une interface **Streamlit** qui automatise le pipeline de traitement vidéo en utilisant plusieurs modèles d'Intelligence Artificielle de pointe. Il permet de passer d'une simple URL YouTube à une vidéo entièrement sous-titrée et traduite, avec identification des interlocuteurs.
 
-## ✨ Fonctionnalités Principales
+## Fonctionnalités Principales
 
-* **🎥 Téléchargement YouTube** : Extraction automatique de l'audio et de la vidéo depuis une URL.
-* **🗣️ Identification Vocale (2 Modes)** :
+* **Téléchargement YouTube** : Extraction automatique de l'audio et de la vidéo depuis une URL.
+* **Identification Vocale (2 Modes)** :
     * **Mode Diarization** : Distingue les voix anonymement ("Intervenant 01", "Intervenant 02"...).
     * **Mode Identification** : Reconnait des personnes spécifiques (ex: "Federer", "Djokovic") grâce à une base de données d'empreintes vocales (Voiceprints).
-* **📝 Transcription Haute Précision** : Utilise le modèle **OpenAI Whisper** pour convertir la parole en texte.
-* **🌍 Traduction Automatique** : Traduit instantanément les sous-titres vers le Français, Anglais, Espagnol, Allemand ou Italien.
-* **🎬 Génération de Vidéo** : Crée un fichier `.mp4` final avec les sous-titres incrustés (hardcoded), prêt à être partagé.
-* **📊 Export de Données** : Téléchargement des transcriptions au format CSV.
+* **Transcription Haute Précision** : Utilise le modèle **OpenAI Whisper** pour convertir la parole en texte.
+* **Traduction Automatique** : Traduit instantanément les sous-titres vers le Français, Anglais, Espagnol, Allemand ou Italien.
+* **Génération de Vidéo** : Crée un fichier `.mp4` final avec les sous-titres incrustés (hardcoded), prêt à être partagé.
+* **Export de Données** : Téléchargement des transcriptions au format CSV.
 
 
 ---
@@ -41,8 +41,9 @@ streamlit run app.py
 
 ## Structure du projet
 
-📦 Youtube-Auto-Subtitler
-│
+```text
+Youtube-Auto-Subtitler
+│                    
 ├── app/
 │   ├── app.py              # Interface principale Streamlit + orchestration
 │   ├── diarization.py      # Gestion Pyannote : upload, diarisation, identification
@@ -51,9 +52,13 @@ streamlit run app.py
 │   ├── translate.py        # Traduction via deep-translator
 │   └── final_video.py      # Génération vidéo + incrustation des sous-titres (FFmpeg)
 │
+├── fig/ 
 ├── voice_database.json     # Base locale de voiceprints
 ├── requirements.txt        # Dépendances du projet
 └── results/                # Exemples de sorties finales
+
+```
+
 
 
 ## Utilisation
