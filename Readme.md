@@ -74,7 +74,7 @@ Dans l'interface Streamlit :
 1. **Renseignez votre clé API Pyannote** dans la barre latérale.
 2. **Collez l’URL de la vidéo YouTube** que vous souhaitez analyser et sous-titrer.
 3. L'application se charge du reste : extraction, transcription, traduction, identification vocale et génération de la vidéo finale.
-**4. (Optionnel)** Pour activer l’**identification de personnes spécifiques**, vous pouvez enrichir la base de données vocale via la section *Voiceprinting* (barre latérale gauche). Il suffit de fournir une vidéo YouTube dans laquelle la personne cible parle distinctement ; l’application extraira automatiquement son empreinte vocale et l’ajoutera à la base.
+4. **(Optionnel)** Pour activer l’**identification de personnes spécifiques**, vous pouvez enrichir la base de données vocale via la section *Voiceprinting* (barre latérale gauche). Il suffit de fournir une vidéo YouTube dans laquelle la personne cible parle distinctement ; l’application extraira automatiquement son empreinte vocale et l’ajoutera à la base.
 
 ---
 
