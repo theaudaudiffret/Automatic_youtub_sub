@@ -1,0 +1,14 @@
+# Environnements (ajoute le nom exact de ton dossier si différent)
+environment/
+env/
+venv/
+.venv/
+
+
+# Gros fichiers
+downloads/
+temp*
+*.wav
+*.mov
+__pycache__/
+.DS_Store
