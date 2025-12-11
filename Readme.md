@@ -41,12 +41,41 @@ streamlit run app.py
 
 ## Structure du projet
 
-* `app.py` : L'interface principale (Streamlit) et l'orchestration.
-* `diarization.py` : Gestion de l'API Pyannote (Upload & Identification).
-* `voiceprint.py` : Extraction des empreintes vocales pour la base de données.
-* `transcript.py` : Transcription audio via le modèle Whisper (local).
-* `translate.py` : Traduction du texte via deep-translator.
-* `final_video.py` : Montage vidéo et incrustation des sous-titres via FFMPEG.
-* `voice_database.json` : Base de données locale contenant les signatures vocales.
+📦 Youtube-Auto-Subtitler
+│
+├── app/
+│   ├── app.py              # Interface principale Streamlit + orchestration
+│   ├── diarization.py      # Gestion Pyannote : upload, diarisation, identification
+│   ├── voiceprint.py       # Extraction & gestion des empreintes vocales
+│   ├── transcript.py       # Transcription audio (Whisper local)
+│   ├── translate.py        # Traduction via deep-translator
+│   └── final_video.py      # Génération vidéo + incrustation des sous-titres (FFmpeg)
+│
+├── voice_database.json     # Base locale de voiceprints
+├── requirements.txt        # Dépendances du projet
+└── results/                # Exemples de sorties finales
+
+
+## Utilisation
+
+Pour lancer l'application :
+
+```bash
+streamlit run app/app.py
+```
+
+Dans l'interface Streamlit :
+
+1. **Renseignez votre clé API Pyannote** dans la barre latérale.
+2. **Collez l’URL de la vidéo YouTube** que vous souhaitez analyser et sous-titrer.
+3. L'application se charge du reste : extraction, transcription, traduction, identification vocale et génération de la vidéo finale.
+**4. (Optionnel)** Pour activer l’**identification de personnes spécifiques**, vous pouvez enrichir la base de données vocale via la section *Voiceprinting* (barre latérale gauche). Il suffit de fournir une vidéo YouTube dans laquelle la personne cible parle distinctement ; l’application extraira automatiquement son empreinte vocale et l’ajoutera à la base.
 
 ---
+
+## Aperçu visuel
+
+<p align="center">
+  <img src="fig/preview.png" alt="Aperçu de l'application" width="600">
+</p>
+
