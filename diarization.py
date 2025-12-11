@@ -57,8 +57,8 @@ def start_identification_job(api_key, media_name, voice_db):
             clean_label = speaker_name.replace("SPEAKER_", "Person_")
             
             voiceprints_list.append({
-                "label": clean_label,      # REMPLACÉ: 'id' -> 'label'
-                "voiceprint": raw_embedding # REMPLACÉ: 'embedding' -> 'voiceprint'
+                "label": clean_label,     
+                "voiceprint": raw_embedding 
             })
             
     if not voiceprints_list:
@@ -129,8 +129,6 @@ def wait_for_result(api_key, job_id, progress_callback=None):
             
             # Gestion spécifique du retour de l'identification
             if 'identification' in output:
-                # Format: une liste de segments avec un champ 'match' (si identifié) ou non
-                # Exemple : [{"start": 0, "end": 2, "match": "Novak", "confidence": 0.9}, ...]
                 return {"status": "success", "segments": output['identification'], "type": "identification"}
             
             elif 'diarization' in output:

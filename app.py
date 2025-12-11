@@ -11,7 +11,7 @@ from translate import translate_transcript
 from voiceprint import render_add_voiceprint_ui
 from final_video import download_video, generate_subtitled_video 
 
-st.set_page_config(page_title="Universal Video Analyzer", page_icon="🧠", layout="wide")
+st.set_page_config(page_title="Youtube-Auto-Subtitler", page_icon="🧠", layout="wide")
 
 # --- Configuration ---
 DB_PATH = "voice_database.json"
@@ -123,14 +123,16 @@ if st.button("Lancer l'analyse"):
         media_name, err = upload_to_pyannote(api_key, file_path)
         if err: st.error(err); st.stop()
         
-        # --- LOGIQUE DE BRANCHEMENT ---
+        # Diarization ou Identification
         if mode_analyse == "Identification (Nommée)":
+            # Mode identification
             if not voice_db:
+                
                 st.error("Erreur : Le mode Identification nécessite au moins une voix dans la base de données (ajout via la sidebar).")
                 st.stop()
             job_id, err = start_identification_job(api_key, media_name, voice_db)
         else:
-            # Mode Diarization pure
+            # Mode Diarization 
             job_id, err = start_diarization_job(api_key, media_name)
             
         if err: st.error(err); st.stop()

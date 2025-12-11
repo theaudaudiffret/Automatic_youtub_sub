@@ -1,12 +1,20 @@
-# Universal Video Analyzer & Subtitler
+# Youtube-Auto-Subtitler
 
-Outil d'automatisation basé sur Streamlit pour le sous-titrage, la traduction et l'identification de locuteurs (diarisation) sur des vidéos YouTube.
+**Une application IA complète pour l'analyse, la transcription et la traduction de vidéos YouTube.**
 
-Le pipeline combine plusieurs modèles pour produire une vidéo finale avec sous-titres incrustés (hardsub) :
-* **Pyannote AI** : Diarisation et identification biométrique des voix (via API).
-* **OpenAI Whisper** : Transcription speech-to-text (modèle local).
-* **Google Translate** : Traduction multilingue.
-* **FFmpeg** : Traitement vidéo, segmentation et incrustation des sous-titres.
+Ce projet est une interface **Streamlit** qui automatise le pipeline de traitement vidéo en utilisant plusieurs modèles d'Intelligence Artificielle de pointe. Il permet de passer d'une simple URL YouTube à une vidéo entièrement sous-titrée et traduite, avec identification des interlocuteurs.
+
+## ✨ Fonctionnalités Principales
+
+* **🎥 Téléchargement YouTube** : Extraction automatique de l'audio et de la vidéo depuis une URL.
+* **🗣️ Identification Vocale (2 Modes)** :
+    * **Mode Diarization** : Distingue les voix anonymement ("Intervenant 01", "Intervenant 02"...).
+    * **Mode Identification** : Reconnait des personnes spécifiques (ex: "Federer", "Djokovic") grâce à une base de données d'empreintes vocales (Voiceprints).
+* **📝 Transcription Haute Précision** : Utilise le modèle **OpenAI Whisper** pour convertir la parole en texte.
+* **🌍 Traduction Automatique** : Traduit instantanément les sous-titres vers le Français, Anglais, Espagnol, Allemand ou Italien.
+* **🎬 Génération de Vidéo** : Crée un fichier `.mp4` final avec les sous-titres incrustés (hardcoded), prêt à être partagé.
+* **📊 Export de Données** : Téléchargement des transcriptions au format CSV.
+
 
 ---
 

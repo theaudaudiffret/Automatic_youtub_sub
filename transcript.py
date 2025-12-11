@@ -7,8 +7,6 @@ from pydub import AudioSegment
 @st.cache_resource
 def load_whisper_model():
     """Charge le modèle Whisper en cache (téléchargé une seule fois)."""
-    # 'base' est un bon compromis vitesse/précision. 
-    # Utilisez 'small' ou 'medium' si vous avez une bonne machine.
     return whisper.load_model("base")
 
 def transcribe_segments(audio_path, segments, model):
@@ -51,23 +49,7 @@ def transcribe_segments(audio_path, segments, model):
         else:
             final_name = "Inconnu"
 
-        # # 1. On cherche d'abord l'identification formelle (le 'match' ou 'label' via la DB)
-        # identity = segment.get('match') or segment.get('label')
-        
-        # # 2. Si l'IA n'a pas trouvé de match (car sous le seuil de 0.85),
-        # # on récupère l'ID de cluster brut (ex: SPEAKER_01) pour faire de la diarisation simple.
-        # cluster_id = segment.get('speaker')
-        
-        # if identity and "SPEAKER_" not in identity:
-        #     # C'est une personne identifiée (ex: "Novak")
-        #     final_name = identity
-        # elif cluster_id:
-        #     # C'est une personne distincte, mais inconnue (ex: "Speaker 02")
-        #     # On nettoie un peu le nom pour faire joli
-        #     final_name = cluster_id.replace("SPEAKER_", "Intervenant ")
-        # else:
-        #     final_name = "Inconnu"
-        # ------------------------
+
         
         # Extraction et transcription
         chunk = audio[start_ms:end_ms]

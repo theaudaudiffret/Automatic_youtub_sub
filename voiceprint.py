@@ -9,6 +9,7 @@ from diarization import upload_to_pyannote
 
 def download_and_cut_audio(youtube_url, start_sec, end_sec):
     """Télécharge et coupe l'audio (inchangé)."""
+
     temp_dir = "temp_voiceprints"
     if not os.path.exists(temp_dir): os.makedirs(temp_dir)
 
@@ -77,7 +78,7 @@ def extract_voiceprint_via_api(api_key, file_path):
     # Barre de progression locale pour faire patienter
     bar = st.progress(0)
     
-    for i in range(30): # Timeout max ~60 secondes (30 * 2s)
+    for i in range(30): 
         try:
             res = requests.get(status_url, headers=headers)
             if res.status_code != 200:
@@ -88,14 +89,14 @@ def extract_voiceprint_via_api(api_key, file_path):
             
             if status == "succeeded":
                 bar.progress(100)
-                # Le voiceprint est dans output -> voiceprint
+
                 output = status_data.get("output", {})
                 return output.get("voiceprint"), None
                 
             elif status == "failed":
                 return None, "L'IA a échoué à extraire une voix."
             
-            # Si "pending" ou "processing"
+        
             bar.progress((i + 1) * 3)
             time.sleep(2)
             
