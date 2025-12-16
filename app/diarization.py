@@ -69,8 +69,9 @@ def start_identification_job(api_key, media_name, voice_db):
         "url": media_name,
         "voiceprints": voiceprints_list,
         "matching": {
-            "threshold": 0.999 
-        }
+            "threshold": 0.90
+        },
+        'exclusive': True
     }
     
     # Debug : Afficher ce qu'on envoie (utile pour vérifier dans la console Streamlit)
@@ -96,7 +97,7 @@ def start_diarization_job(api_key, media_name):
     
     # Endpoint différent : /v1/diarize
     try:
-        res = requests.post("https://api.pyannote.ai/v1/diarize", headers=headers, json={"url": media_name})
+        res = requests.post("https://api.pyannote.ai/v1/diarize", headers=headers, json={"url": media_name, "exclusive": True})
     except Exception as e:
         return None, f"Erreur connexion Job Start: {str(e)}"
 

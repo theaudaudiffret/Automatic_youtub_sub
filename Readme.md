@@ -35,8 +35,6 @@ L'application nécessite impérativement les éléments suivants pour fonctionne
 # Installer les dépendances (environnement virtuel recommandé)
 pip install -r requirements.txt
 
-# Lancer l'interface
-streamlit run app.py
 ```
 
 ## Structure du projet
