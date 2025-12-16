@@ -4,7 +4,6 @@ import os
 import subprocess
 import math
 
-# ... (download_video et time_to_srt_format restent inchangés) ...
 def download_video(youtube_url):
     download_path = "downloads_video"
     if not os.path.exists(download_path): os.makedirs(download_path)
